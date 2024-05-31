@@ -23,24 +23,63 @@ import android.widget.TextView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.BiConsumer;
 
 
 public class MainActivity extends AppCompatActivity {
 
 
+    String num1 = "", num2 = "", num3 = "", num4 = "", num5 = "";
+    String num6 = "", num7 = "", num8 = "", num9 = "", num10 = "";
+    String num11 = "", num12 = "", num13 = "", num14 = "", num15 = "";
 
 
     @Override
     protected void onResume() {
         super.onResume();
+
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-        String ENUM = sharedPreferences.getString("ENUM","NONE");
-        if(ENUM.equalsIgnoreCase("NONE")){
+
+        num1 = sharedPreferences.getString("ENUM1","NONE");
+        num2 = sharedPreferences.getString("ENUM2","NONE");
+        num3 = sharedPreferences.getString("ENUM3","NONE");
+        num4 = sharedPreferences.getString("ENUM4","NONE");
+        num5 = sharedPreferences.getString("ENUM5","NONE");
+        num6 = sharedPreferences.getString("ENUM6","NONE");
+        num7 = sharedPreferences.getString("ENUM7","NONE");
+        num8 = sharedPreferences.getString("ENUM8","NONE");
+        num9 = sharedPreferences.getString("ENUM9","NONE");
+        num10 = sharedPreferences.getString("ENUM10","NONE");
+        num11 = sharedPreferences.getString("ENUM11","NONE");
+        num12 = sharedPreferences.getString("ENUM12","NONE");
+        num13 = sharedPreferences.getString("ENUM13","NONE");
+        num14 = sharedPreferences.getString("ENUM14","NONE");
+        num15 = sharedPreferences.getString("ENUM15","NONE");
+
+        if(num1.equalsIgnoreCase("NONE")){
             startActivity(new Intent(this,RegisterNumberActivity.class));
         }else {
             TextView textView =  findViewById(R.id.textNum);
-            textView.setText("SOS Will Be Sent To\n"+ENUM);
+            String numbers = "";
+
+            if (!Objects.equals(num1, "NONE")) numbers+=num1+"\n";
+            if (!Objects.equals(num2, "NONE")) numbers+=num2+"\n";
+            if (!Objects.equals(num3, "NONE")) numbers+=num3+"\n";
+            if (!Objects.equals(num4, "NONE")) numbers+=num4+"\n";
+            if (!Objects.equals(num5, "NONE")) numbers+=num5+"\n";
+            if (!Objects.equals(num6, "NONE")) numbers+=num6+"\n";
+            if (!Objects.equals(num7, "NONE")) numbers+=num7+"\n";
+            if (!Objects.equals(num8, "NONE")) numbers+=num8+"\n";
+            if (!Objects.equals(num9, "NONE")) numbers+=num9+"\n";
+            if (!Objects.equals(num10, "NONE")) numbers+=num10+"\n";
+            if (!Objects.equals(num11, "NONE")) numbers+=num11+"\n";
+            if (!Objects.equals(num12, "NONE")) numbers+=num12+"\n";
+            if (!Objects.equals(num13, "NONE")) numbers+=num13+"\n";
+            if (!Objects.equals(num14, "NONE")) numbers+=num14+"\n";
+            if (!Objects.equals(num15, "NONE")) numbers+=num15+"\n";
+
+            textView.setText("SOS Will Be Sent To\n"+numbers);
         }
     }
 
